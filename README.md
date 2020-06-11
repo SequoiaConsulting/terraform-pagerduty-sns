@@ -1,4 +1,4 @@
-#terraform-pagerduty-sns
+# terraform-pagerduty-sns
 Terraform module to create SNS topic and subscription for Pagerduty service.
 
 ## Inputs
