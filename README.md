@@ -21,7 +21,7 @@ Terraform module to create SNS topic and subscription for Pagerduty service.
 
 ```hcl
 module "sns-pagerduty" {
-  source             = "https://github.com/SequoiaConsulting/terraform-pagerduty-sns.git?ref=1.0"
+  source             = "https://github.com/SequoiaConsulting/terraform-pagerduty-sns.git?ref=v1.0"
   display_name       = "PagerDutySNSDemo"
   pagerduty_endpoint = "https://events.pagerduty.com/integration/EXAMPLE_KEY/enqueue"
   sns_topic_name     = "pagerduty-sns-demo"
