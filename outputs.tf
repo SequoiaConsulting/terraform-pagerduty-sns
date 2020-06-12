@@ -1,5 +1,5 @@
 
 output "sns_topic_arn" {
   description = "The ARN of the SNS topic"
-  value = sns_topic_arn.pagerduty.arn
+  value = aws_sns_topic.pagerduty.arn
 }
