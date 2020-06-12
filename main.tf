@@ -3,7 +3,7 @@ locals {
 }
 
 data "aws_sns_topic" "pagerduty" {
-  count = 1 - (var.create_sns_topic ? 1 : 0) * (var.create ? 1 : 0)
+  count = var.enabled == true ? 1 : 0
   name  = var.sns_topic_name
 }
 
