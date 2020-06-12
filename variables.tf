@@ -25,3 +25,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "enabled" {
+  type = bool
+  default = false
+  description = "Enable/Disable SNS and subscriptions"
+}
