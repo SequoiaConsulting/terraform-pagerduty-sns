@@ -11,5 +11,5 @@ resource "aws_sns_topic_subscription" "pagerduty" {
   endpoint               = var.pagerduty_endpoint
   endpoint_auto_confirms = true
   protocol               = "https"
-  topic_arn              = aws_sns_topic.pagerduty.arn
+  topic_arn              = aws_sns_topic.pagerduty.[0].arn
 }
