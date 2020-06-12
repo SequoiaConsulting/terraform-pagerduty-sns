@@ -1,10 +1,5 @@
 locals {
-  sns_topic_arn = element(concat(aws_sns_topic.pagerduty.*.arn, data.aws_sns_topic.pagerduty.*.arn, list("")), 0)
-}
-
-data "aws_sns_topic" "pagerduty" {
-  count = var.enabled == true ? 1 : 0
-  name  = var.sns_topic_name
+  sns_topic_arn = element(concat(aws_sns_topic.pagerduty.*.arn, list("")), 0)
 }
 
 resource "aws_sns_topic" "pagerduty" {
