@@ -1,3 +1,12 @@
+locals {
+  sns_topic_arn = element(concat(aws_sns_topic.pagerduty.*.arn, data.aws_sns_topic.pagerduty.*.arn, list("")), 0)
+}
+
+data "aws_sns_topic" "pagerduty" {
+  count = 1 - (var.create_sns_topic ? 1 : 0) * (var.create ? 1 : 0)
+  name  = var.sns_topic_name
+}
+
 resource "aws_sns_topic" "pagerduty" {
   count = var.enabled == true ? 1 : 0
   name              = var.sns_topic_name
@@ -11,5 +20,5 @@ resource "aws_sns_topic_subscription" "pagerduty" {
   endpoint               = var.pagerduty_endpoint
   endpoint_auto_confirms = true
   protocol               = "https"
-  topic_arn              = aws_sns_topic.pagerduty.[0].arn
+  topic_arn              = local.sns_topic_arn
 }
